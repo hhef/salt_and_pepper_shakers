@@ -32,18 +32,27 @@
         <div class="top-bar">
           <div class="container">
             <div class="row">
-              <div class="col-9 social">
+              <div class="col social">
                 <a href="#"><span class="fa fa-twitter"></span></a>
                 <a href="#"><span class="fa fa-facebook"></span></a>
                 <a href="#"><span class="fa fa-instagram"></span></a>
                 <a href="#"><span class="fa fa-youtube-play"></span></a>
               </div>
-              <div class="col-3 search-top">
+              <div class="col search-top">
                 <!-- <a href="#"><span class="fa fa-search"></span></a> -->
                 <form action="#" class="search-top-form">
                   <span class="icon fa fa-search"></span>
                   <input type="text" id="s" placeholder="Type keyword to search...">
                 </form>
+                <div class="col social">
+                    {% if user.is_authenticated %}
+                        <a href="#">Logout</a>
+                        <a href="#">Profile</a>
+                    {% else %}
+                        <a href="#">Login</a>
+                        <a href="#">Register</a>
+                    {% endif %}
+                </div>
               </div>
             </div>
           </div>
