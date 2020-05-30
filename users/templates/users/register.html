@@ -10,18 +10,18 @@
   {% csrf_token %}
   <div class="row">
     <div class="col-md-12 form-group">
-        {{ form }}
+        {{ form.as_p }}
     </div>
   </div>
   <div class="row">
     <div class="col-md-6 form-group">
-      <input type="submit" value="Stwórz konto" class="btn btn-primary">
+      <input type="submit" value="Create account" class="btn btn-primary">
     </div>
   </div>
 </form>
     <div class="border-top pt-3">
         <small class="text-muted">
-            Masz już konto? <a class="ml-2" href="#">Zaloguj się</a>
+            Already have an account? <a class="ml-2" href="#">Log in</a>
         </small>
     </div>
 </div>
