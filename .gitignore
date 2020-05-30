@@ -2,3 +2,5 @@
 salt_and_pepper_shakers/__pycache__/
 posts/__pycache__/
 posts/migrations/__pycache__/
+users/migrations/__pycache__/
+users/__pycache__/
