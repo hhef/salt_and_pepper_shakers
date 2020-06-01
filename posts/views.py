@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Post
+from random import sample
 
 
 def home(request):
@@ -15,3 +16,10 @@ def about(request):
 
 def contact(request):
     return render(request, 'posts/contact.html')
+
+
+def base(request):
+    context = {
+        'posts': Post.objects.all()
+    }
+    return render(request, 'posts/base.html', context)
