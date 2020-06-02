@@ -94,11 +94,9 @@
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
                   <div class="dropdown-menu" aria-labelledby="dropdown05">
-                    <a class="dropdown-item" href="#">Lifestyle</a>
-                    <a class="dropdown-item" href="#">Food</a>
-                    <a class="dropdown-item" href="#">Adventure</a>
-                    <a class="dropdown-item" href="#">Travel</a>
-                    <a class="dropdown-item" href="#">Business</a>
+                    {% for category in categories %}
+                      <a class="dropdown-item" href="#">{{ category.name }}</a>
+                    {% endfor %}
                   </div>
 
                 </li>
@@ -246,11 +244,9 @@
             <div class="sidebar-box">
               <h3 class="heading">Categories</h3>
               <ul class="categories">
-                <li><a href="#">Food <span>(12)</span></a></li>
-                <li><a href="#">Travel <span>(22)</span></a></li>
-                <li><a href="#">Lifestyle <span>(37)</span></a></li>
-                <li><a href="#">Business <span>(42)</span></a></li>
-                <li><a href="#">Adventure <span>(14)</span></a></li>
+                {% for category in categories %}
+                  <li><a href="#">{{category.name}} <span>(12)</span></a></li>
+                {% endfor %}
               </ul>
             </div>
             <!-- END sidebar-box -->
