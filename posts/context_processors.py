@@ -13,4 +13,4 @@ def categories(request):
 
 
 def latest_posts(request):
-    return {'latest_posts': Post.objects.all().order_by('-id')[:3]}
+    return {'latest_posts': Post.objects.all().order_by('-date_posted')[:3]}
