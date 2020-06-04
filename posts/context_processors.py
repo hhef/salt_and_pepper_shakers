@@ -3,7 +3,8 @@ from random import sample
 
 
 def slider(request):
-    random_posts = Post.objects.filter(name='Elvis')
+    posts = Post.objects.all()
+    random_posts = sample(list(posts), 3)
     return {'random_posts': random_posts}
 
 
