@@ -65,6 +65,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'posts.context_processors.slider',
                 'posts.context_processors.categories',
+                'posts.context_processors.latest_posts',
             ],
         },
     },

@@ -185,7 +185,7 @@
                 <div class="bio-body">
                   <h2>Meagan Smith</h2>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem facilis sunt repellendus excepturi beatae porro debitis voluptate nulla quo veniam fuga sit molestias minus.</p>
-                  <p><a href="#" class="btn btn-primary btn-sm">Read my bio</a></p>
+                  <p><a href="{% url 'about-page' %}" class="btn btn-primary btn-sm">Read my bio</a></p>
                   <p class="social">
                     <a href="#" class="p-2"><span class="fa fa-facebook"></span></a>
                     <a href="#" class="p-2"><span class="fa fa-twitter"></span></a>
@@ -281,12 +281,13 @@
         <div class="container">
           <div class="row mb-5">
             <div class="col-md-4">
-              <h3>About Us</h3>
+              <h3>About Me</h3>
               <p class="mb-4">
                 <img src="{% static 'posts/images/img_1.jpg' %}" alt="Image placeholder" class="img-fluid">
               </p>
 
-              <p>Lorem ipsum dolor sit amet sa ksal sk sa, consectetur adipisicing elit. Ipsa harum inventore reiciendis. <a href="{% url 'about-page' %}">Read More</a></p>
+              <p>Lorem ipsum dolor sit amet sa ksal sk sa, consectetur adipisicing elit. Ipsa harum inventore reiciendis.
+                <a href="{% url 'about-page' %}">Read More</a></p>
             </div>
             <div class="col-md-6 ml-auto">
               <div class="row">
@@ -294,42 +295,20 @@
                   <h3>Latest Post</h3>
                   <div class="post-entry-sidebar">
                     <ul>
+                      {% for latest_post in latest_posts %}
                       <li>
                         <a href="">
                           <img src="{% static 'posts/images/img_6.jpg' %}" alt="Image placeholder" class="mr-4">
                           <div class="text">
-                            <h4>How to Find the Video Games of Your Youth</h4>
+                            <h4>{{ latest_post.name }}</h4>
                             <div class="post-meta">
-                              <span class="mr-2">March 15, 2018 </span> &bullet;
+                              <span class="mr-2">{{ latest_post.date_posted|date:"d E o" }} </span> &bullet;
                               <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
                             </div>
                           </div>
                         </a>
                       </li>
-                      <li>
-                        <a href="">
-                          <img src="{% static 'posts/images/img_3.jpg' %}" alt="Image placeholder" class="mr-4">
-                          <div class="text">
-                            <h4>How to Find the Video Games of Your Youth</h4>
-                            <div class="post-meta">
-                              <span class="mr-2">March 15, 2018 </span> &bullet;
-                              <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
-                            </div>
-                          </div>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="">
-                          <img src="{% static 'posts/images/img_4.jpg' %}" alt="Image placeholder" class="mr-4">
-                          <div class="text">
-                            <h4>How to Find the Video Games of Your Youth</h4>
-                            <div class="post-meta">
-                              <span class="mr-2">March 15, 2018 </span> &bullet;
-                              <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
-                            </div>
-                          </div>
-                        </a>
-                      </li>
+                      {% endfor %}
                     </ul>
                   </div>
                 </div>

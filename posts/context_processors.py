@@ -10,3 +10,7 @@ def slider(request):
 def categories(request):
     categories = Category.objects.all()
     return {'categories': categories}
+
+
+def latest_posts(request):
+    return {'latest_posts': Post.objects.all().order_by('-id')[:3]}
