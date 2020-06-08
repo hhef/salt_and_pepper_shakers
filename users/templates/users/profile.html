@@ -7,6 +7,19 @@
           <h2 class="account-heading">{{ user.username }}</h2>
           <p class="text-secondary">{{ user.email }}</p>
 
-      <!-- FORM HERE -->
+      <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="row">
+            <div class="col-md-12 form-group">
+                {{ user_form|crispy }}
+                {{ profile_form|crispy }}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 form-group">
+              <input type="submit" value="Update" class="btn btn-primary">
+            </div>
+          </div>
+      </form>
     </div>
 {% endblock content %}
