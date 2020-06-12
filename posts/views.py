@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import Post
 from django.db.models import Q
-from django.views.generic import ListView
+from django.views.generic import ListView, CreateView, DeleteView, UpdateView
 
 
 def about(request):
@@ -32,3 +32,8 @@ class PostListView(ListView):
     template_name = 'posts/home.html'
     context_object_name = 'posts'
     ordering = '-date_posted'
+
+
+class PostCreateView(CreateView):
+    model = Post
+    fields = ['name', 'description', 'category']
