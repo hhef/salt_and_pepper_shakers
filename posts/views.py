@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import Post
 from django.db.models import Q
 from django.views.generic import ListView, CreateView, DeleteView, UpdateView
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 
 def about(request):
@@ -34,10 +35,13 @@ class PostListView(ListView):
     ordering = '-date_posted'
 
 
-class PostCreateView(CreateView):
+class PostCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     model = Post
     fields = ['name', 'description', 'category']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+
+    def test_func(self):
+        return self.request.user.is_superuser
