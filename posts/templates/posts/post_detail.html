@@ -1,0 +1,25 @@
+{% extends 'posts/base.html' %}
+{% block content %}
+
+<div class="row">
+    <div class="col-md-6">
+        <h2 class="mb-4">{{ object.name }}</h2>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+          <a href="blog-single.html" class="blog-entry element-animate" data-animate-effect="fadeIn">
+            <img src="images/img_5.jpg" alt="Image placeholder">
+            <div class="blog-content-body">
+              <div class="post-meta">
+                <span class="author mr-2"><img src="images/person_1.jpg"> {{ object.author }}</span>
+                <span class="mr-2">{{ object.date_posted|date:"d E o"}} </span>
+                <span class="ml-2"><span class="fa fa-comments"></span> {{ object.likes }}</span>
+              </div>
+            </div>
+          </a>
+        </div>
+    </div>
+</div>
+{% endblock content %}

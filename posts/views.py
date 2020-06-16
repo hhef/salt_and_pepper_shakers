@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import Post
 from django.db.models import Q
-from django.views.generic import ListView, CreateView, DeleteView, UpdateView
+from django.views.generic import ListView, CreateView, DetailView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 
@@ -33,6 +33,10 @@ class PostListView(ListView):
     template_name = 'posts/home.html'
     context_object_name = 'posts'
     ordering = '-date_posted'
+
+
+class PostDetailView(DetailView):
+    model = Post
 
 
 class PostCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
