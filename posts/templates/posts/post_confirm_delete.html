@@ -1,0 +1,24 @@
+{% extends 'posts/base.html' %}
+{% block content %}
+<div class="row mb-4">
+  <div class="col-md-6">
+    <h1>Delete Post</h1>
+  </div>
+</div>
+<div class="content-section">
+    <form action="#" method="post">
+      {% csrf_token %}
+      <div class="row">
+        <div class="col-md-12 form-group">
+            <h2>Are you sure you want to delete {{ object.name }}</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 form-group">
+          <input type="submit" value="Delete" class="btn btn-outline-danger">
+          <a class="btn btn-primary" href="{% url 'post-detail' object.slug %}">Go back to post</a>
+        </div>
+      </div>
+    </form>
+</div>
+{% endblock content %}
