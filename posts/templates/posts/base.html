@@ -125,7 +125,7 @@
               <div class="owl-carousel owl-theme home-slider">
                 {% for random_post in random_posts %}
                 <div>
-                  <a href="blog-single.html" class="a-block d-flex align-items-center height-lg" style="background-image: url('images/img_1.jpg'); ">
+                  <a href="{% url 'post-detail' random_post.slug %}" class="a-block d-flex align-items-center height-lg" style="background-image: url('images/img_1.jpg'); ">
                     <div class="text half-to-full">
                       <span class="category mb-5">{{random_post.category}}</span>
                       <div class="post-meta">
@@ -212,7 +212,7 @@
                           <h4>{{ most_liked_post.name }}</h4>
                           <div class="post-meta">
                             <span class="mr-2">{{ most_liked_post.date_posted }} </span> &bullet;
-                            <span class="ml-2"><span class="fa fa-comments"></span> {{ most_liked_post.likes }}</span>
+                            <span class="ml-2"><span class="fa fa-thumbs-up"></span> {{ most_liked_post.likes }}</span>
                           </div>
                         </div>
                       </a>
@@ -233,23 +233,6 @@
             </div>
             <!-- END sidebar-box -->
 
-            <div class="sidebar-box">
-              <h3 class="heading">Tags</h3>
-              <ul class="tags">
-                <li><a href="#">Travel</a></li>
-                <li><a href="#">Adventure</a></li>
-                <li><a href="#">Food</a></li>
-                <li><a href="#">Lifestyle</a></li>
-                <li><a href="#">Business</a></li>
-                <li><a href="#">Freelancing</a></li>
-                <li><a href="#">Travel</a></li>
-                <li><a href="#">Adventure</a></li>
-                <li><a href="#">Food</a></li>
-                <li><a href="#">Lifestyle</a></li>
-                <li><a href="#">Business</a></li>
-                <li><a href="#">Freelancing</a></li>
-              </ul>
-            </div>
           </div>
           <!-- END sidebar -->
 
