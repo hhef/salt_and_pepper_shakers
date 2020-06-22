@@ -84,14 +84,8 @@ class CategoryCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
         return self.request.user.is_superuser
 
 
-class CategoryListView(ListView):
-    model = Category
-    template_name = 'posts/category.html'
-    context_object_name = 'categories'
+def posts_by_categories(request, slug):
+    category = Category.objects.get(slug=slug)
+    posts_by_cat = Post.objects.filter(category=category)
 
-
-# def posts_by_categories(request, slug):
-#     category = Category.objects.get(slug=slug)
-#     posts_by_cat = Post.objects.filter(category=category)
-#
-#     return render(request, 'posts/category.html', {'posts_by_cat': posts_by_cat})
+    return render(request, 'posts/category.html', {'posts_by_cat': posts_by_cat})
