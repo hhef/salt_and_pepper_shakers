@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import about, contact, SearchListView, PostListView, PostCreateView, PostDetailView, PostUpdateView, \
-    PostDeleteView, CategoryCreateView, CategoryListView
+    PostDeleteView, CategoryCreateView, CategoryListView, posts_by_categories
 
 urlpatterns = [
     path("", PostListView.as_view(), name="home-page"),

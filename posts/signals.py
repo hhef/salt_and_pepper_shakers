@@ -15,6 +15,4 @@ def create_post_slug(sender, instance, *args, **kwargs):
 
 @receiver(pre_save, sender=Category)
 def create_category_slug(sender, instance, *args, **kwargs):
-    random_string = string.ascii_lowercase + string.digits
-    after_slug = ''.join(random.choice(random_string) for _ in range(4))
-    instance.slug = f"{slugify(instance.name)}-{after_slug}"
+    instance.slug = f"{slugify(instance.name)}"
