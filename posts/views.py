@@ -82,3 +82,9 @@ class CategoryCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
 
     def test_func(self):
         return self.request.user.is_superuser
+
+
+class CategoryListView(ListView):
+    model = Category
+    template_name = 'posts/category.html'
+    context_object_name = 'categories'
