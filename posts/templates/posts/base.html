@@ -51,6 +51,7 @@
                   <a href="{% url 'profile' %}">Profile</a>
                     {% if user.is_superuser %}
                       <a href="{% url 'post-create' %}">Create New Post</a>
+                      <a href="{% url 'category-create' %}">Create New Category</a>
                     {% endif %}
                 {% else %}
                   <a href="{% url 'login' %}">Login</a>
