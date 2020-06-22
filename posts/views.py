@@ -6,7 +6,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 
 def about(request):
-    return render(request, 'posts/about.html')
+    latest_posts = Post.objects.all().order_by('-date_posted')
+    return render(request, 'posts/about.html', {"latest_posts": latest_posts})
 
 
 def contact(request):

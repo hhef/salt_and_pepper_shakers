@@ -1,4 +1,5 @@
 from posts.models import Post, Category
+from django.contrib.auth.models import User
 from random import sample
 
 
@@ -19,3 +20,7 @@ def latest_posts(request):
 
 def most_liked_posts(request):
     return {'most_liked_posts': Post.objects.all().order_by('-likes')[:3]}
+
+
+def admin_profile(request):
+    return {'about_me': User.objects.get(id=1)}
