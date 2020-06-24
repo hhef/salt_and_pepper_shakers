@@ -26,7 +26,15 @@
 
 
 <div class="pt-5">
-  <p>Categories:  <a href="#">{{ object.category }}</a>, <a href="#">Travel</a></p>
+
+  <p>Categories:
+    {% for cat in object.category.all %}
+      {% if forloop.last %}
+        <a href="{% url 'categories' cat.slug %}">{{ cat.name }}</a>
+      {% else %}
+        <a href="{% url 'categories' cat.slug %}">{{ cat.name }}</a>,
+      {% endif %}
+    {% endfor %}
 </div>
 
 {% if user.is_superuser %}
