@@ -255,7 +255,7 @@
               <h3 class="heading">Categories</h3>
               <ul class="categories">
                 {% for category in categories %}
-                  <li><a href="{% url 'categories' category.slug %}">{{category.name}} <span>{{ category.post_set.count }}</span></a></li>
+                  <li><a href="{% url 'categories' category.slug %}">{{ category.name }} <span>{{ category.post_set.count }}</span></a></li>
                 {% endfor %}
               </ul>
             </div>

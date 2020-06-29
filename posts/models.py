@@ -42,3 +42,6 @@ class Comment(models.Model):
     text = models.TextField()
     comment_date = models.DateTimeField(default=timezone.now)
     likes = models.IntegerField(default=0)
+
+    def __str__(self):
+        return f"{self.post} -- {self.author}"
