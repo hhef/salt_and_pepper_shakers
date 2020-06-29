@@ -69,6 +69,7 @@ TEMPLATES = [
                 'posts.context_processors.latest_posts',
                 'posts.context_processors.most_liked_posts',
                 'posts.context_processors.admin_profile',
+                'posts.context_processors.most_commented_posts',
 
             ],
         },

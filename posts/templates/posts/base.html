@@ -207,16 +207,16 @@
               <h3 class="heading">Popular Posts</h3>
               <div class="post-entry-sidebar">
                 <ul>
-                  {% for most_liked_post in most_liked_posts %}
+                  {% for most_commented_post in most_commented_posts %}
                     <li>
-                      <a href="{% url 'post-detail' most_liked_post.slug %}">
+                      <a href="{% url 'post-detail' most_commented_post.slug %}">
                         <img src="{% static 'posts/images/img_2.jpg' %}" alt="Image placeholder" class="mr-4">
                         <div class="text">
-                          <h4>{{ most_liked_post.name }}</h4>
+                          <h4>{{ most_commented_post.name }}</h4>
                           <div class="post-meta">
-                            <span class="mr-2">{{ most_liked_post.date_posted }} </span> &bullet;
-                            <span class="ml-2"><span class="fa fa-thumbs-up"></span> {{ most_liked_post.likes }}</span>
-                            <span class="ml-2"><span class="fa fa-comments"></span> 3 </span>
+                            <span class="mr-2">{{ most_commented_post.date_posted|date:"d E o" }} </span><br>
+                            <span class="ml-2"><span class="fa fa-thumbs-up"></span> {{ most_commented_post.likes }}</span>
+                            <span class="ml-2"><span class="fa fa-comments"></span> {{ most_commented_post.comment_set.count }} </span>
                           </div>
                         </div>
                       </a>
@@ -238,9 +238,9 @@
                         <div class="text">
                           <h4>{{ most_liked_post.name }}</h4>
                           <div class="post-meta">
-                            <span class="mr-2">{{ most_liked_post.date_posted }} </span> &bullet;
+                            <span class="mr-2">{{ most_liked_post.date_posted|date:"d E o" }} </span><br>
                             <span class="ml-2"><span class="fa fa-thumbs-up"></span> {{ most_liked_post.likes }}</span>
-                            <span class="ml-2"><span class="fa fa-comments"></span> 3 </span>
+                            <span class="ml-2"><span class="fa fa-comments"></span> {{ most_liked_post.comment_set.count }} </span>
                           </div>
                         </div>
                       </a>
@@ -296,7 +296,7 @@
                             <h4>{{ latest_post.name }}</h4>
                             <div class="post-meta">
                               <span class="mr-2">{{ latest_post.date_posted|date:"d E o" }} </span> &bullet;
-                              <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
+                              <span class="ml-2"><span class="fa fa-comments"></span> {{ latest_post.comment_set.count }}</span>
                             </div>
                           </div>
                         </a>

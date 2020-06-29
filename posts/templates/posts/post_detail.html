@@ -42,7 +42,7 @@
 
 
 <div class="pt-5">
-  <h3 class="mb-5">6 Comments</h3>
+  <h3 class="mb-5">{{ object.comment_set.count }} Comments </h3>
   {% for comment in object.comment_set.all %}
   <ul class="comment-list">
     <li class="comment">
