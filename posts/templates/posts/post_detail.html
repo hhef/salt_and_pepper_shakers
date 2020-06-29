@@ -20,11 +20,11 @@
   </div>
 </div>
 <p>{{ object.description|linebreaks }}</p>
+  <h3 class="mb-5"><a href="#" class="fa fa-thumbs-up"></a> {{ object.likes }}</h3>
 </div>
 
 
 <div class="pt-5">
-
   <p>Categories:
     {% for cat in object.category.all %}
       {% if forloop.last %}
@@ -34,6 +34,7 @@
       {% endif %}
     {% endfor %}
 </div>
+
 
 {% if user.is_superuser %}
   <a class="btn btn-primary" href="{% url 'post-update' object.slug %}">Update</a>
