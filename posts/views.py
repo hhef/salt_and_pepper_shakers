@@ -3,6 +3,7 @@ from .models import Post, Category
 from django.db.models import Q
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from .forms import CommentForm
 
 
 def about(request):
@@ -90,3 +91,21 @@ def posts_by_categories(request, slug):
     posts_by_cat = Post.objects.filter(category=category)
 
     return render(request, 'posts/category_posts.html', {'posts_by_cat': posts_by_cat})
+
+
+def post_detail_with_comment_form(request, slug):
+    post = Post.objects.get(slug=slug)
+    new_comment = None
+    if request.method == "POST":
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid():
+            new_comment = comment_form.save(commit=False)
+            new_comment.post = post
+            new_comment.author = request.user
+            new_comment.save()
+    else:
+        comment_form = CommentForm()
+
+    context = {'post': post,
+               'comment_form': comment_form}
+    return render(request, 'posts/post_detail.html', context)

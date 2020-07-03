@@ -44,4 +44,4 @@ class Comment(models.Model):
     likes = models.IntegerField(default=0)
 
     def __str__(self):
-        return f"{self.post} -- {self.author}"
+        return f"Comment in {self.post} by {self.author}"
