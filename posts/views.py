@@ -89,4 +89,4 @@ def posts_by_categories(request, slug):
     category = Category.objects.get(slug=slug)
     posts_by_cat = Post.objects.filter(category=category)
 
-    return render(request, 'posts/category.html', {'posts_by_cat': posts_by_cat})
+    return render(request, 'posts/category_posts.html', {'posts_by_cat': posts_by_cat})
