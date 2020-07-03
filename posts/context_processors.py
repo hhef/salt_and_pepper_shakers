@@ -1,4 +1,4 @@
-from posts.models import Post, Category, Comment
+from posts.models import Post, Category
 from django.contrib.auth.models import User
 from random import sample
 from django.db.models import Count
@@ -6,8 +6,11 @@ from django.db.models import Count
 
 def slider(request):
     posts = Post.objects.all()
-    random_posts = sample(list(posts), 3)
-    return {'random_posts': random_posts}
+    if posts.count() >= 5:
+        random_posts = sample(list(posts), 5)
+        return {'random_posts': random_posts}
+    else:
+        return {'random_posts': posts}
 
 
 def categories(request):
