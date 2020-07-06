@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Post, Category
 from django.db.models import Q
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
@@ -103,6 +103,7 @@ def post_detail_with_comment_form(request, slug):
             new_comment.post = post
             new_comment.author = request.user
             new_comment.save()
+            return redirect("post-detail", slug=post.slug)
     else:
         comment_form = CommentForm()
 
