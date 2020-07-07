@@ -14,8 +14,7 @@ def slider(request):
 
 
 def categories(request):
-    categories = Category.objects.all()
-    return {'categories': categories}
+    return {'categories': Category.objects.all().annotate(num_posts=Count('post')).order_by('-num_posts')}
 
 
 def latest_posts(request):
