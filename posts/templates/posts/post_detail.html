@@ -29,9 +29,9 @@
   <p>Categories:
     {% for cat in post.category.all %}
       {% if forloop.last %}
-        <a href="{% url 'categories' cat.slug %}">{{ cat.name }}</a>
+        <a href="{% url 'categories-posts' cat.slug %}">{{ cat.name }}</a>
       {% else %}
-        <a href="{% url 'categories' cat.slug %}">{{ cat.name }}</a>,
+        <a href="{% url 'categories-posts' cat.slug %}">{{ cat.name }}</a>,
       {% endif %}
     {% endfor %}
 </div>

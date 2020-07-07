@@ -1,0 +1,23 @@
+{% extends 'posts/base.html' %}
+{% block content %}
+
+<div class="row">
+    <div class="col-md-6">
+        <h2 class="mb-4">All Categories</h2>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        {% for category in categories %}
+        <div class="col-md-6">
+          <a href="{% url 'categories-posts' category.slug %}" class="blog-entry element-animate" data-animate-effect="fadeIn">
+            <img src="{{ category.image.url }}" alt="Image placeholder">
+            <div class="blog-content-body">
+              <h3>{{ category.name }}, {{ category.post_set.count }} posts</h3>
+            </div>
+          </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}

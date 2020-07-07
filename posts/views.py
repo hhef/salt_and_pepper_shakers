@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Post, Category
 from django.db.models import Q
-from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .forms import CommentForm
 
@@ -35,10 +35,6 @@ class PostListView(ListView):
     template_name = 'posts/home.html'
     context_object_name = 'posts'
     ordering = '-date_posted'
-
-
-class PostDetailView(DetailView):
-    model = Post
 
 
 class PostCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
@@ -110,3 +106,10 @@ def post_detail_with_comment_form(request, slug):
     context = {'post': post,
                'comment_form': comment_form}
     return render(request, 'posts/post_detail.html', context)
+
+
+class CategoryListView(ListView):
+    model = Category
+    template_name = 'posts/categories.html'
+    context_object_name = 'categories'
+    ordering = 'name'

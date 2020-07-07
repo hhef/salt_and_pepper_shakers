@@ -96,10 +96,10 @@
                 </li>
 
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
+                  <a class="nav-link dropdown-toggle" href="{% url 'categories' %}" id="dropdown05" aria-haspopup="true" aria-expanded="false">Categories</a>
                   <div class="dropdown-menu" aria-labelledby="dropdown05">
                     {% for category in categories %}
-                      <a class="dropdown-item" href="{% url 'categories' category.slug %}">{{ category.name }}</a>
+                      <a class="dropdown-item" href="{% url 'categories-posts' category.slug %}">{{ category.name }}</a>
                     {% endfor %}
                   </div>
 
@@ -255,7 +255,7 @@
               <h3 class="heading">Categories</h3>
               <ul class="categories">
                 {% for category in categories %}
-                  <li><a href="{% url 'categories' category.slug %}">{{ category.name }} <span>{{ category.post_set.count }}</span></a></li>
+                  <li><a href="{% url 'categories-posts' category.slug %}">{{ category.name }} <span>{{ category.post_set.count }}</span></a></li>
                 {% endfor %}
               </ul>
             </div>

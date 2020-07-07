@@ -10,31 +10,4 @@
         </div>
       </div>
     </div>
-
-    <div class="row mb-5 mt-5">
-      <div class="col-md-12 mb-5">
-        <h2>My Latest Posts</h2>
-      </div>
-      <div class="col-md-12">
-        {% for latest_post in latest_posts %}
-        <div class="post-entry-horzontal">
-          <a href="blog-single.html">
-            <div class="image" style="background-image: url(images/img_10.jpg);"></div>
-            <span class="text">
-              <div class="post-meta">
-                <span class="author mr-2"><img src="images/person_1.jpg" alt="Colorlib"> {{ latest_post.author }}</span>&bullet;
-                <span class="mr-2">{{ latest_post.date_posted }} </span> &bullet;
-                <span class="ml-2"><span class="fa fa-comments"></span> {{ latest_post.likes }}</span>
-              </div>
-              <h2>{{ latest_post.description }}</h2>
-            </span>
-          </a>
-        </div>
-        {% endfor%}
-        <!-- END post -->
-
-      </div>
-    </div>
-
-
 {% endblock content %}
