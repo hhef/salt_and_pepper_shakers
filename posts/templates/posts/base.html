@@ -98,9 +98,12 @@
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="{% url 'categories' %}" id="dropdown05" aria-haspopup="true" aria-expanded="false">Categories</a>
                   <div class="dropdown-menu" aria-labelledby="dropdown05">
-                    {% for category in categories %}
-                      <a class="dropdown-item" href="{% url 'categories-posts' category.slug %}">{{ category.name }}</a>
+                    {% for category_base in categories_base %}
+                      <a class="dropdown-item" href="{% url 'categories-posts' category_base.slug %}">{{ category_base.name }}</a>
                     {% endfor %}
+                    {% if categories_base.all.count >= 7 %}
+                      <a class="dropdown-item" href="{% url 'categories'%}">More...</a>
+                    {% endif %}
                   </div>
 
                 </li>
@@ -254,9 +257,12 @@
             <div class="sidebar-box">
               <h3 class="heading">Categories</h3>
               <ul class="categories">
-                {% for category in categories %}
-                  <li><a href="{% url 'categories-posts' category.slug %}">{{ category.name }} <span>{{ category.post_set.count }}</span></a></li>
+                {% for category_base in categories_base %}
+                  <li><a href="{% url 'categories-posts' category_base.slug %}">{{ category_base.name }} <span>{{ category_base.post_set.count }}</span></a></li>
                 {% endfor %}
+                {% if categories_base.all.count >= 7 %}
+                  <li><a href="{% url 'categories' %}">More... </a></li>
+                {% endif %}
               </ul>
             </div>
             <!-- END sidebar-box -->
