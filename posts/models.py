@@ -10,7 +10,7 @@ class Category(models.Model):
 
     name = models.CharField(max_length=150, unique=True)
     slug = models.SlugField(unique=True)
-    image = models.ImageField(upload_to='category_pics')
+    image = models.ImageField(default='default-cat.jpg', upload_to='category_pics')
 
     def __str__(self):
         return self.name
