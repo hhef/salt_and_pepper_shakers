@@ -26,7 +26,6 @@ class Post(models.Model):
     updated_date = models.DateTimeField(auto_now=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     category = models.ManyToManyField(Category)
-    likes = models.IntegerField(default=0)
     slug = models.SlugField(unique=True)
 
     def __str__(self):
@@ -41,7 +40,6 @@ class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     text = models.TextField()
     comment_date = models.DateTimeField(default=timezone.now)
-    likes = models.IntegerField(default=0)
 
     def __str__(self):
         return f"Comment in {self.post} by {self.author}"

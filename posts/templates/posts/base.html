@@ -137,7 +137,7 @@
 
                         <span class="author mr-2"><img src="{{ random_post.author.profile.image.url }}"> {{ random_post.author }}</span>&bullet;
                         <span class="mr-2">{{ random_post.date_posted|date:"d E o" }} </span> &bullet;
-                        <span class="ml-2"><span class="fa fa-thumbs-up"></span> {{ random_post.likes }}</span>
+                        <span class="ml-2"><span class="fa fa-thumbs-up"></span>  random_post.likes </span>
                         <span class="ml-2"><span class="fa fa-comments"></span> {{ random_post.comment_set.count }}</span>
 
                       </div>
@@ -218,7 +218,7 @@
                           <h4>{{ most_commented_post.name }}</h4>
                           <div class="post-meta">
                             <span class="mr-2">{{ most_commented_post.date_posted|date:"d E o" }} </span><br>
-                            <span class="ml-2"><span class="fa fa-thumbs-up"></span> {{ most_commented_post.likes }}</span>
+                            <span class="ml-2"><span class="fa fa-thumbs-up"></span>  most_commented_post.likes </span>
                             <span class="ml-2"><span class="fa fa-comments"></span> {{ most_commented_post.comment_set.count }} </span>
                           </div>
                         </div>
@@ -242,7 +242,7 @@
                           <h4>{{ most_liked_post.name }}</h4>
                           <div class="post-meta">
                             <span class="mr-2">{{ most_liked_post.date_posted|date:"d E o" }} </span><br>
-                            <span class="ml-2"><span class="fa fa-thumbs-up"></span> {{ most_liked_post.likes }}</span>
+                            <span class="ml-2"><span class="fa fa-thumbs-up"></span>  most_liked_post.likes </span>
                             <span class="ml-2"><span class="fa fa-comments"></span> {{ most_liked_post.comment_set.count }} </span>
                           </div>
                         </div>
