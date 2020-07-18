@@ -45,18 +45,20 @@ def create_posts():
         post.save()
 
 
-def create_comments():
+def create_comments_and_likes():
     faker = Faker()
     for _ in range(100):
         author_id = str(random.randint(1, 10))
-        post = str(random.randint(1, 20))
+        post = str(random.randint(1, 40))
         text = faker.texts(nb_texts=3, max_nb_chars=200, ext_word_list=None)
         comment = Comment(author_id=author_id, post_id=post, text=text)
         comment.save()
+        post = Post.objects.get(id=str(random.randint(1, 40)))
+        post.likes.add(str(random.randint(1, 10)))
 
 
 create_superuser()
 create_users()
 create_category()
 create_posts()
-create_comments()
+create_comments_and_likes()
