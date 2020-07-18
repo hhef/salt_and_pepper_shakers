@@ -21,8 +21,8 @@ def latest_posts(request):
     return {'latest_posts': Post.objects.all().order_by('-date_posted')[:3]}
 
 
-def most_liked_posts(request):
-    return {'most_liked_posts': Post.objects.all().order_by('-likes')[:3]}
+# def most_liked_posts(request):
+#     return {'most_liked_posts': Post.objects.all().order_by('-likes')[:3]}
 
 
 def most_commented_posts(request):

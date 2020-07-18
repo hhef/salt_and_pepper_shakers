@@ -35,7 +35,7 @@ def create_category():
 
 def create_posts():
     faker = Faker()
-    for _ in range(20):
+    for _ in range(40):
         author_id = 1
         name = faker.sentence(nb_words=6, variable_nb_words=True, ext_word_list=None)
         description = faker.texts(nb_texts=3, max_nb_chars=200, ext_word_list=None)
@@ -47,7 +47,7 @@ def create_posts():
 
 def create_comments():
     faker = Faker()
-    for _ in range(50):
+    for _ in range(100):
         author_id = str(random.randint(1, 10))
         post = str(random.randint(1, 20))
         text = faker.texts(nb_texts=3, max_nb_chars=200, ext_word_list=None)
