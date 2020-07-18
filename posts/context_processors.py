@@ -22,7 +22,7 @@ def latest_posts(request):
 
 
 def most_liked_posts(request):
-    return {'most_liked_posts': Post.objects.all().order_by('-likes')[:3]}
+    return {'most_liked_posts': Post.objects.all().annotate(num_likes=Count('likes')).order_by('-num_likes')[:3]}
 
 
 def most_commented_posts(request):
