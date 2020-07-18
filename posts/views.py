@@ -1,9 +1,11 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Post, Category
 from django.db.models import Q
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .forms import CommentForm
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 
 
 def about(request):
@@ -113,3 +115,9 @@ class CategoryListView(ListView):
     template_name = 'posts/categories.html'
     context_object_name = 'categories'
     ordering = 'name'
+
+
+def like_view(request, slug):
+    post = get_object_or_404(Post, slug=request.POST.get('post_like'))
+    post.likes.add(request.user)
+    return HttpResponseRedirect(reverse('post-detail', args=[slug]))

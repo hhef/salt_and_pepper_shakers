@@ -27,6 +27,7 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     category = models.ManyToManyField(Category)
     slug = models.SlugField(unique=True)
+    likes = models.ManyToManyField(User, related_name='post_likes')
 
     def __str__(self):
         return self.name
