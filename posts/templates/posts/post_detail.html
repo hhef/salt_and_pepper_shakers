@@ -21,13 +21,18 @@
   </div>
 </div>
 <p>{{ post.description|linebreaks }}</p>
-  <h3 class="mb-5">
-    <form action="{% url 'like-post' post.slug %}" method="POST">
-      {% csrf_token %}
-      <button type="submit" name="post_like" value="{{ post.slug }}" class="btn btn-link fa fa-thumbs-up"></button>
-      {{ post.likes.count }}
-    </form>
-  </h3>
+  {% if user.is_authenticated %}
+    <h3 class="mb-5">
+      <form action="{% url 'like-post' post.slug %}" method="POST">
+        {% csrf_token %}
+        <button type="submit" name="post_like" value="{{ post.slug }}" class="btn btn-link fa fa-thumbs-up"></button>
+        {{ post.likes.count }}
+      </form>
+    </h3>
+  {% else %}
+    <h3 class="mb-5"><span class="fa fa-thumbs-up"></span> {{ post.likes.count }}</h3>
+    <h3 class="mb-5"><a href="{% url 'login' %}"> Log in </a> to Like</h3>
+  {% endif %}
 </div>
 
 

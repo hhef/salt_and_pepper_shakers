@@ -41,6 +41,7 @@ class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     text = models.TextField()
     comment_date = models.DateTimeField(default=timezone.now)
+    likes = models.ManyToManyField(User, related_name='comment_likes')
 
     def __str__(self):
         return f"Comment in {self.post} by {self.author}"

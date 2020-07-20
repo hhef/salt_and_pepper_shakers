@@ -1,13 +1,12 @@
 {% extends 'posts/base.html' %}
 {% block content %}
-
-    <div class="row">
-      <div class="col-md-12">
-        <h2 class="mb-4">Hi There! I'm {{ about_me.username }}</h2>
-        <p class="mb-5"><img src="{{ about_me.profile.image.url }}" alt="Image placeholder" class="img-fluid"></p>
-        <div class="text-justify">
-            <p> {{ about_me.profile.about|linebreaks }}</p>
-        </div>
-      </div>
+<div class="row">
+  <div class="col-md-12">
+    <h2 class="mb-4">Hi There! I'm {{ about_me.username }}</h2>
+    <p class="mb-5"><img src="{{ about_me.profile.image.url }}" alt="Image placeholder" class="img-fluid"></p>
+    <div class="text-justify">
+        <p>{{ about_me.profile.about|linebreaks }}</p>
     </div>
+  </div>
+</div>
 {% endblock content %}
