@@ -53,8 +53,11 @@ def create_comments_and_likes():
         text = faker.texts(nb_texts=3, max_nb_chars=200, ext_word_list=None)
         comment = Comment(author_id=author_id, post_id=post, text=text)
         comment.save()
-        post = Post.objects.get(id=str(random.randint(1, 40)))
-        post.likes.add(str(random.randint(1, 10)))
+        post_like = Post.objects.get(id=str(random.randint(1, 40)))
+        post_like.likes.add(str(random.randint(1, 10)))
+    for _ in range(200):
+        comment_like = Comment.objects.get(id=str(random.randint(1, 100)))
+        comment_like.likes.add(str(random.randint(1, 10)))
 
 
 create_superuser()
