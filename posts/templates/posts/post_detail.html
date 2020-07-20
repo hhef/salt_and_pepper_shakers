@@ -66,10 +66,17 @@
         <h3>{{ comment.author }}</h3>
         <div class="meta">{{ comment.comment_date }}</div>
         <p>{{ comment.text }}</p>
-        <p><a href="#" class="fa fa-thumbs-up"></a> comment.likes
+        {% if user.is_authenticated %}
+          <form action="{% url 'like-post' post.slug %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" name="comment_like" value="{{ comment.id }}" class="btn btn-link fa fa-thumbs-up"></button>
+            {{ comment.likes.count }}
+          </form>
+        {% else %}
+          <p><span class="fa fa-thumbs-up"></span> {{ comment.likes.count }}
+        {% endif %}
       </div>
     </li>
-
   </ul>
   {% endfor %}
 
