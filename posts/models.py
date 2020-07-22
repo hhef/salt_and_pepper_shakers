@@ -45,3 +45,8 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"Comment in {self.post} by {self.author}"
+
+
+class Image(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='post_pics', null=True, blank=True)
